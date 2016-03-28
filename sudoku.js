@@ -13,7 +13,11 @@ function solve(boardString) {
 }
 
 function boardIsInvalid(boardArray) {
-  return // bool
+  return !boardIsValid(boardArray);
+}
+
+function boardIsValid(boardArray) {
+  return (allRowsValid(boardArray) && allColsValid(boardArray) && allBoxesValid(boardArray));
 }
 
 function boardIsSolved(boardArray) {
