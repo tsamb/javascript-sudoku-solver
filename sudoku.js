@@ -21,8 +21,7 @@ function boardIsValid(boardArray) {
 }
 
 function boardIsSolved(boardArray) {
-
-  return // bool
+  return !boardArray.includes("-");
 }
 
 function getCellWithLeastPossibilities(boardArray) {
