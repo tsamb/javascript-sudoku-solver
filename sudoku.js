@@ -6,11 +6,11 @@ function solve(boardString) {
   if (boardIsSolved(boardArray)) { return boardString }
   var nextUnsolvedCellIndex, possibilities;
   [nextUnsolvedCellIndex, possibilities] = getCellWithLeastPossibilities(boardArray);
-  possibilities.forEach(function(numberGuess) {
-    boardArray[nextUnsolvedCellIndex] = numberGuess;
+  for (var i = 0; i < possibilities.length; i++) {
+    boardArray[nextUnsolvedCellIndex] = possibilities[i];
     var solvedBoard = solve(boardArray.join(""));
     if (solvedBoard) { return solvedBoard }
-  });
+  }
   return false;
 }
 
