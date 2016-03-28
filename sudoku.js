@@ -53,6 +53,19 @@ function getColumn(boardArray, i) {
   return [0,1,2,3,4,5,6,7,8].map(num => boardArray[startingEl + (num * 9)]);
 }
 
+function allBoxesValid(boardArray) {
+  return [0,3,6,27,30,33,54,57,60]
+    .map(i => getBox(boardArray, i))
+    .reduce((validity, row) => { return collectionIsValid(row) && validity }, true);
+}
+
+function getBox(boardArray, i) {
+  var boxCol = Math.floor(i / 3) % 3;
+  var boxRow = Math.floor(i / 27);
+  var startingIndex = (boxCol * 3) + (boxRow * 27);
+  return [0,1,2,9,10,11,18,19,20].map((num) => boardArray[startingIndex + num])
+}
+
 function collectionIsValid(collection) {
   var collectionWithoutBlanks = collection.filter(el => el != "-");
   return collectionWithoutBlanks.length == new Set(collectionWithoutBlanks).size;
