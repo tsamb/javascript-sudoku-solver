@@ -28,3 +28,12 @@ function getCellWithLeastPossibilities(boardArray) {
 
   return // [cellIndex, [1,5,8]]
 }
+
+function allRowsValid(boardArray) {
+
+}
+
+function rowValid(row) {
+  var rowWithoutblanks = row.filter(el => el != "-");
+  return rowWithoutblanks.length == new Set(rowWithoutblanks).size
+}
