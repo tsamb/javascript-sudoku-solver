@@ -17,6 +17,11 @@ function solve(boardString) {
   return false;
 }
 
+function solveAndPrint(boardString) {
+  var solvedBoard = solve(boardString);
+  console.log(toString(solvedBoard.split("")));
+}
+
 function boardIsInvalid(boardArray) {
   return !boardIsValid(boardArray);
 }
