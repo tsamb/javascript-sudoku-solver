@@ -86,14 +86,6 @@ function collectionIsValid(collection) {
 }
 
 function toString(boardArray) {
-  var output = "";
-  var boardCopy = boardArray.slice();
-  for (var i = 0; i < 9; i++) {
-    for (var j = 0; j < 9; j++) {
-      output += boardCopy.shift();
-      output += " ";
-    }
-    output += "\n";
-  }
-  console.log(output);
+  return [0,9,18,27,36,45,54,63,72]
+    .map(i => getRow(boardArray, i).join(" ")).join("\n");
 }
