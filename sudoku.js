@@ -1,3 +1,5 @@
+var TEST_BOARD = "1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--".split("");
+
 function solve(boardString) {
   var boardArray = boardString.split("");
   if (boardIsInvalid(boardArray)) { return false }
@@ -30,10 +32,12 @@ function getCellWithLeastPossibilities(boardArray) {
 }
 
 function allRowsValid(boardArray) {
-
+  return [0,9,18,27,36,45,54,63,72]
+    .map(el => boardArray.slice(el, el + 9))
+    .reduce((validity, row) => { return collectionIsValid(row) && validity }, true);
 }
 
-function rowValid(row) {
-  var rowWithoutblanks = row.filter(el => el != "-");
-  return rowWithoutblanks.length == new Set(rowWithoutblanks).size
+function collectionIsValid(collection) {
+  var collectionWithoutBlanks = collection.filter(el => el != "-");
+  return collectionWithoutBlanks.length == new Set(collectionWithoutBlanks).size;
 }
