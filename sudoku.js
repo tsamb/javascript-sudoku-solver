@@ -33,8 +33,24 @@ function getCellWithLeastPossibilities(boardArray) {
 
 function allRowsValid(boardArray) {
   return [0,9,18,27,36,45,54,63,72]
-    .map(el => boardArray.slice(el, el + 9))
+    .map(i => getRow(boardArray, i))
     .reduce((validity, row) => { return collectionIsValid(row) && validity }, true);
+}
+
+function getRow(boardArray, i) {
+  var startingEl = Math.floor(i / 9);
+  return boardArray.slice(startingEl, startingEl + 9);
+}
+
+function allColumnsValid(boardArray) {
+  return [0,1,2,3,4,5,6,7,8]
+    .map(i => getColumn(boardArray, i))
+    .reduce((validity, row) => { return collectionIsValid(row) && validity }, true);
+}
+
+function getColumn(boardArray, i) {
+  var startingEl = Math.floor(i % 9);
+  return [0,1,2,3,4,5,6,7,8].map(num => boardArray[startingEl + (num * 9)]);
 }
 
 function collectionIsValid(collection) {
