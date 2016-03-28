@@ -7,8 +7,9 @@ function solve(boardString) {
   var boardArray = boardString.split("");
   if (boardIsInvalid(boardArray)) { return false }
   if (boardIsSolved(boardArray)) { return boardString }
-  var nextUnsolvedCellIndex, possibilities;
-  [nextUnsolvedCellIndex, possibilities] = getCellWithLeastPossibilities(boardArray);
+  var cellPossibilities = getCellWithLeastPossibilities(boardArray);
+  var nextUnsolvedCellIndex = cellPossibilities.index;
+  var possibilities = cellPossibilities.choices;
   for (var i = 0; i < possibilities.length; i++) {
     boardArray[nextUnsolvedCellIndex] = possibilities[i];
     var solvedBoard = solve(boardArray.join(""));
@@ -41,10 +42,10 @@ function getCellWithLeastPossibilities(boardArray) {
     if (value === "-") {
       var existingValues = getAllIntersections(boardArray, i);
       var choices = ["1","2","3","4","5","6","7","8","9"].filter(num => !existingValues.includes(num));
-      choicesCollection.push([i, choices]);
+      choicesCollection.push({index: i, choices: choices});
     }
   });
-  return choicesCollection.sort((a,b) => a[1].length - b[1].length)[0];
+  return choicesCollection.sort((a,b) => a.choices.length - b.choices.length)[0];
 }
 
 function getAllIntersections(boardArray, i) {
