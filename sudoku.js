@@ -20,6 +20,7 @@ function solve(boardString) {
 function solveAndPrint(boardString) {
   var solvedBoard = solve(boardString);
   console.log(toString(solvedBoard.split("")));
+  return solvedBoard;
 }
 
 function boardIsInvalid(boardArray) {
