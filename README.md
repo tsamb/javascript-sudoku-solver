@@ -26,14 +26,13 @@ solveAndPrint(MEDIUM_PUZZLE)
 
 ## Algorithm
 
-This solver uses a backtracking tree-based recursive search algorithm. The algorithm is optimized to always solve the cell with the least possibilities first (see `getCellWithLeastPossibilities()`).
+This solver uses a backtracking tree-based recursive search algorithm:
 
 1. If a given board state is invalid return false (base case)
 - If a given board state has no blank spaces left return the board (base case)
-- Find the empty cell with the least possible choices on the board
+- Find the next empty cell on the board and its possible choices
 - Iterate through each possible choice:
   1. Replace the empty cell with the current possible choice
-  - Call the current function with the new board state (create a new stack frame and go back to 1.
+  - Call the current function with the new board state; that is, create a new stack frame and go back to 1.
   - If a truthy base case is found down some recursive branch, return that board state to the parent caller
-- If iteration completes without finding a valid board, return false to the parent caller
-
+- If iteration completes without finding a valid board, return false to the parent caller (reaching this step indicates a dead end and returning false results in the continuation of the iteration in the previous stack frame)
