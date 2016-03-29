@@ -7,7 +7,6 @@ function solve(boardString) {
   var boardArray = boardString.split("");
   if (boardIsInvalid(boardArray)) { return false }
   if (boardIsSolved(boardArray)) { return boardString }
-  // var cellPossibilities = getCellWithLeastPossibilities(boardArray);
   var cellPossibilities = getNextCellAndPossibilities(boardArray);
   var nextUnsolvedCellIndex = cellPossibilities.index;
   var possibilities = cellPossibilities.choices;
@@ -35,18 +34,6 @@ function boardIsValid(boardArray) {
 
 function boardIsSolved(boardArray) {
   return !boardArray.includes("-");
-}
-
-function getCellWithLeastPossibilities(boardArray) {
-  var choicesCollection = [];
-  boardArray.forEach((value, i) => {
-    if (value === "-") {
-      var existingValues = getAllIntersections(boardArray, i);
-      var choices = ["1","2","3","4","5","6","7","8","9"].filter(num => !existingValues.includes(num));
-      choicesCollection.push({index: i, choices: choices});
-    }
-  });
-  return choicesCollection.sort((a,b) => a.choices.length - b.choices.length)[0];
 }
 
 function getNextCellAndPossibilities(boardArray) {
