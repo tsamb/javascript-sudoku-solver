@@ -55,7 +55,7 @@
 
   document.getElementById("solve-button").addEventListener("click", function(event) {
     var boardString = boardToString();
-    var solution = solve(boardString);
+    var solution = SudokuSolver.solve(boardString);
     if (solution) {
       stringToBoard(solution);
     } else {

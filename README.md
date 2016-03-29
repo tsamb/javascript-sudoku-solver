@@ -6,11 +6,11 @@ A [Sudoku](https://en.wikipedia.org/wiki/Sudoku) solver written in JavaScript.
 
 This code uses ES6 arrow syntax and the ES7 array method, `Array.prototype.includes()`. You can run this code in Chrome, Firefox or Node (with the `--harmony` flag to support `includes()`).
 
-Call the `solve()` function with an 81 character string where hyphens, "-", represent unsolved cells on the board.
+Call the `SudokuSolver.solve()` function with an 81 character string where hyphens, "-", represent unsolved cells on the board.
 
-Given a valid puzzle, `solve()` will return an 81 character string with all the hyphens filled in with numbers. `solve()` will return `false` for an invalid puzzle.
+Given a valid puzzle, `SudokuSolver.solve()` will return an 81 character string with all the hyphens filled in with numbers. `SudokuSolver.solve()` will return `false` for an invalid puzzle.
 
-You can also call `solveAndPrint()` which will pretty print a 2D representation of the solved board to `console.log` and return the 81 character solved string.
+You can also call `SudokuSolver.solveAndPrint()` which will pretty print a 2D representation of the solved board to `console.log` and return the 81 character solved string.
 
 Three puzzles of varying difficulties have been defined in the global scope for testing and demonstration:
 
@@ -21,7 +21,7 @@ Three puzzles of varying difficulties have been defined in the global scope for 
 You can, for example, call:
 
 ```js
-solveAndPrint(MEDIUM_PUZZLE)
+SudokuSolver.solveAndPrint(MEDIUM_PUZZLE)
 ```
 
 ## Algorithm
