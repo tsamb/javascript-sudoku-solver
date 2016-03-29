@@ -32,7 +32,12 @@
        <tr> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td>
        <tr> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td>     <tr> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td>
     </table>
-    <button id="solve-button">Solve!</button>
+    <div>
+      <button id="solve-button">Solve!</button>
+    </div>
+    <div>
+      <button id="clear-button">Clear board</button>
+    </div>
   </div>
 </body>
 <script type="text/javascript">
@@ -57,6 +62,15 @@
       alert("Invalid board!");
     }
   })
+
+  document.getElementById("clear-button").addEventListener("click", clearBoard);
+
+  function clearBoard() {
+    var tds = document.getElementsByTagName("td");
+    for (var i = 0; i < tds.length; i++) {
+      tds[i].innerText = "";
+    }
+  }
 
   function boardToString() {
     var string = "";
