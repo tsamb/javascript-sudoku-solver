@@ -17,4 +17,88 @@ describe("SudokuSolver", function() {
       });
     });
   });
+
+  describe("solveAndPrint", function() {
+    it("", function() {
+      expect(SudokuSolver.solveAndPrint())
+    })
+  });
+
+  describe("boardIsInvalid", function() {
+    it("", function() {
+      expect(SudokuSolver.boardIsInvalid())
+    })
+  });
+
+  describe("boardIsValid", function() {
+    it("", function() {
+      expect(SudokuSolver.boardIsValid())
+    })
+  });
+
+  describe("boardIsSolved", function() {
+    it("", function() {
+      expect(SudokuSolver.boardIsSolved())
+    })
+  });
+
+  describe("getNextCellAndPossibilities", function() {
+    it("", function() {
+      expect(SudokuSolver.getNextCellAndPossibilities())
+    })
+  });
+
+  describe("getAllIntersections", function() {
+    it("", function() {
+      expect(SudokuSolver.getAllIntersections())
+    })
+  });
+
+  describe("allRowsValid", function() {
+    it("", function() {
+      expect(SudokuSolver.allRowsValid())
+    })
+  });
+
+  describe("getRow", function() {
+    it("", function() {
+      expect(SudokuSolver.getRow())
+    })
+  });
+
+  describe("allColumnsValid", function() {
+    it("", function() {
+      expect(SudokuSolver.allColumnsValid())
+    })
+  });
+
+  describe("getColumn", function() {
+    it("", function() {
+      expect(SudokuSolver.getColumn())
+    })
+  });
+
+  describe("allBoxesValid", function() {
+    it("", function() {
+      expect(SudokuSolver.allBoxesValid())
+    })
+  });
+
+  describe("getBox", function() {
+    it("", function() {
+      expect(SudokuSolver.getBox())
+    })
+  });
+
+  describe("collectionIsValid", function() {
+    it("", function() {
+      expect(SudokuSolver.collectionIsValid())
+    })
+  });
+
+  describe("toString", function() {
+    it("", function() {
+      expect(SudokuSolver.toString())
+    })
+  });
 });
