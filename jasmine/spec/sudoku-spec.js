@@ -34,12 +34,12 @@ describe("SudokuSolver", function() {
   });
 
   describe("boardIsInvalid", function() {
-    it("returns true when the board has no solution", function() {
+    it("returns true when the board has duplicates in row, column or box", function() {
       var boardArray = INVALID_PUZZLE.split("");
       expect(SudokuSolver.boardIsInvalid(boardArray)).toEqual(true);
     });
 
-    it("returns false when the board has no solution", function() {
+    it("returns false when the board has no duplicates in row, column or box", function() {
       var boardArray = EASY_PUZZLE.split("");
       expect(SudokuSolver.boardIsInvalid(boardArray)).toEqual(false);
     });
