@@ -29,85 +29,85 @@ describe("SudokuSolver", function() {
     });
 
     it("returns an 81 charcter string with only numbers", function() {
-      expect(SudokuSolver.solveAndPrint(EASY_PUZZLE)).toMatch(/[1-9]{81}/)
-    })
+      expect(SudokuSolver.solveAndPrint(EASY_PUZZLE)).toMatch(/[1-9]{81}/);
+    });
   });
 
   describe("boardIsInvalid", function() {
     it("", function() {
-      expect(SudokuSolver.boardIsInvalid())
-    })
+      expect(SudokuSolver.boardIsInvalid());
+    });
   });
 
   describe("boardIsValid", function() {
     it("", function() {
-      expect(SudokuSolver.boardIsValid())
-    })
+      expect(SudokuSolver.boardIsValid());
+    });
   });
 
   describe("boardIsSolved", function() {
     it("", function() {
-      expect(SudokuSolver.boardIsSolved())
-    })
+      expect(SudokuSolver.boardIsSolved());
+    });
   });
 
   describe("getNextCellAndPossibilities", function() {
     it("", function() {
-      expect(SudokuSolver.getNextCellAndPossibilities())
-    })
+      expect(SudokuSolver.getNextCellAndPossibilities());
+    });
   });
 
   describe("getAllIntersections", function() {
     it("", function() {
-      expect(SudokuSolver.getAllIntersections())
-    })
+      expect(SudokuSolver.getAllIntersections());
+    });
   });
 
   describe("allRowsValid", function() {
     it("", function() {
-      expect(SudokuSolver.allRowsValid())
-    })
+      expect(SudokuSolver.allRowsValid());
+    });
   });
 
   describe("getRow", function() {
     it("", function() {
-      expect(SudokuSolver.getRow())
-    })
+      expect(SudokuSolver.getRow());
+    });
   });
 
   describe("allColumnsValid", function() {
     it("", function() {
-      expect(SudokuSolver.allColumnsValid())
-    })
+      expect(SudokuSolver.allColumnsValid());
+    });
   });
 
   describe("getColumn", function() {
     it("", function() {
-      expect(SudokuSolver.getColumn())
-    })
+      expect(SudokuSolver.getColumn());
+    });
   });
 
   describe("allBoxesValid", function() {
     it("", function() {
-      expect(SudokuSolver.allBoxesValid())
-    })
+      expect(SudokuSolver.allBoxesValid());
+    });
   });
 
   describe("getBox", function() {
     it("", function() {
-      expect(SudokuSolver.getBox())
-    })
+      expect(SudokuSolver.getBox());
+    });
   });
 
   describe("collectionIsValid", function() {
     it("", function() {
-      expect(SudokuSolver.collectionIsValid())
-    })
+      expect(SudokuSolver.collectionIsValid());
+    });
   });
 
   describe("toString", function() {
     it("", function() {
-      expect(SudokuSolver.toString())
-    })
+      expect(SudokuSolver.toString());
+    });
   });
 });
