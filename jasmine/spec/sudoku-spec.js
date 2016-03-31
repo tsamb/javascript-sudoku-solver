@@ -2,6 +2,8 @@ describe("SudokuSolver", function() {
   var INVALID_PUZZLE, EASY_PUZZLE, MEDIUM_PUZZLE, HARD_PUZZLE;
   beforeEach(function() {
     INVALID_PUZZLE = "1158-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--";
+    EMPTY_PUZZLE = "--------------------------------------------------------------------------------";
+    SOLVED_PUZZLE = "12345678945678912378912345621436589736589721489721436553164297864297853197853164";
     EASY_PUZZLE = "1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--";
     MEDIUM_PUZZLE = "-3-5--8-45-42---1---8--9---79-8-61-3-----54---5------78-----7-2---7-46--61-3--5--";
     HARD_PUZZLE = "8----------36------7--9-2---5---7-------457-----1---3---1----68--85---1--9----4--";
@@ -58,14 +60,19 @@ describe("SudokuSolver", function() {
   });
 
   describe("boardIsSolved", function() {
-    it("", function() {
-      expect(SudokuSolver.boardIsSolved());
+    it("returns true when the board contains only numbers", function() {
+      expect(SudokuSolver.boardIsSolved(SOLVED_PUZZLE)).toEqual(true);
+    });
+
+    it("returns false when the board contains only numbers", function() {
+      expect(SudokuSolver.boardIsSolved(EASY_PUZZLE)).toEqual(false);
     });
   });
 
   describe("getNextCellAndPossibilities", function() {
-    it("", function() {
-      expect(SudokuSolver.getNextCellAndPossibilities());
+    it("returns an object with an integer and subarray", function() {
+      var boardArray = EMPTY_PUZZLE.split("");
+      expect(SudokuSolver.getNextCellAndPossibilities(boardArray)).toEqual({index: 0, choices: ['1', '2', '3', '4', '5', '6', '7', '8', '9']});
     });
   });
 
