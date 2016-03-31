@@ -46,8 +46,14 @@ describe("SudokuSolver", function() {
   });
 
   describe("boardIsValid", function() {
-    it("", function() {
-      expect(SudokuSolver.boardIsValid());
+    it("returns true when the board has no duplicates in row, column or box", function() {
+      var boardArray = EASY_PUZZLE.split("");
+      expect(SudokuSolver.boardIsValid(boardArray)).toEqual(true);
+    });
+
+    it("returns false when the board has no duplicates in row, column or box", function() {
+      var boardArray = INVALID_PUZZLE.split("");
+      expect(SudokuSolver.boardIsValid(boardArray)).toEqual(false);
     });
   });
 
