@@ -3,8 +3,10 @@ var MEDIUM_PUZZLE = "-3-5--8-45-42---1---8--9---79-8-61-3-----54---5------78----
 var HARD_PUZZLE = "8----------36------7--9-2---5---7-------457-----1---3---1----68--85---1--9----4--";
 // see: http://www.telegraph.co.uk/news/science/science-news/9359579/Worlds-hardest-sudoku-can-you-crack-it.html
 
-var SudokuSolver = (function() {
-  var solver = {};
+var TESTABLE = false;
+
+var SudokuSolver = (function(testable) {
+  var solver;
 
   // PUBLIC FUNCTIONS
   function solve(boardString) {
@@ -28,8 +30,7 @@ var SudokuSolver = (function() {
     return solvedBoard;
   }
 
-  solver.solve = solve;
-  solver.solveAndPrint = solveAndPrint;
+  
 
   // PRIVATE FUNCTIONS
   function boardIsInvalid(boardArray) {
@@ -103,5 +104,26 @@ var SudokuSolver = (function() {
       .map(i => getRow(boardArray, i).join(" ")).join("\n");
   }
 
+  if (testable) {
+    solver = {solve: solve,
+              solveAndPrint: solveAndPrint,
+              boardIsInvalid: boardIsInvalid,
+              boardIsValid: boardIsValid,
+              boardIsSolved: boardIsSolved,
+              getNextCellAndPossibilities: getNextCellAndPossibilities,
+              getAllIntersections: getAllIntersections,
+              allRowsValid: allRowsValid,
+              getRow: getRow,
+              allColumnsValid: allColumnsValid,
+              getColumn: getColumn,
+              allBoxesValid: allBoxesValid,
+              getBox: getBox,
+              collectionIsValid: collectionIsValid,
+              toString: toString}
+  } else {
+    solver = {solve: solve,
+              solveAndPrint: solveAndPrint}
+  }
+
   return solver;
-}())
+}(TESTABLE))
