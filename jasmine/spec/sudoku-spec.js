@@ -22,8 +22,14 @@ describe("SudokuSolver", function() {
   });
 
   describe("solveAndPrint", function() {
-    it("", function() {
-      expect(SudokuSolver.solveAndPrint())
+    it("prints the solved board to the console", function () {
+        spyOn(console, 'log');
+        SudokuSolver.solveAndPrint(EASY_PUZZLE);
+        expect(console.log.calls.first().args[0]).toMatch(/((([1-9] )+[1-9])\n){8}([1-9] )+[1-9]/);
+    });
+
+    it("returns an 81 charcter string with only numbers", function() {
+      expect(SudokuSolver.solveAndPrint(EASY_PUZZLE)).toMatch(/[1-9]{81}/)
     })
   });
 
