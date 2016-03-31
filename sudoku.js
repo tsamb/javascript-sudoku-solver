@@ -3,7 +3,8 @@ var MEDIUM_PUZZLE = "-3-5--8-45-42---1---8--9---79-8-61-3-----54---5------78----
 var HARD_PUZZLE = "8----------36------7--9-2---5---7-------457-----1---3---1----68--85---1--9----4--";
 // see: http://www.telegraph.co.uk/news/science/science-news/9359579/Worlds-hardest-sudoku-can-you-crack-it.html
 
-var TESTABLE = false;
+// Set this variable to true to publicly expose otherwise private functions inside of SudokuSolver
+var TESTABLE = true;
 
 var SudokuSolver = (function(testable) {
   var solver;
@@ -105,6 +106,7 @@ var SudokuSolver = (function(testable) {
   }
 
   if (testable) {
+    // These methods will be exposed publicly when testing is on.
     solver = {solve: solve,
               solveAndPrint: solveAndPrint,
               boardIsInvalid: boardIsInvalid,
@@ -121,6 +123,7 @@ var SudokuSolver = (function(testable) {
               collectionIsValid: collectionIsValid,
               toString: toString}
   } else {
+    // These will be the only public methods when testing is off.
     solver = {solve: solve,
               solveAndPrint: solveAndPrint}
   }
