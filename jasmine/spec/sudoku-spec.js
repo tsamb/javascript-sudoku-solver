@@ -34,8 +34,14 @@ describe("SudokuSolver", function() {
   });
 
   describe("boardIsInvalid", function() {
-    it("", function() {
-      expect(SudokuSolver.boardIsInvalid());
+    it("returns true when the board has no solution", function() {
+      var boardArray = INVALID_PUZZLE.split("");
+      expect(SudokuSolver.boardIsInvalid(boardArray)).toEqual(true);
+    });
+
+    it("returns false when the board has no solution", function() {
+      var boardArray = EASY_PUZZLE.split("");
+      expect(SudokuSolver.boardIsInvalid(boardArray)).toEqual(false);
     });
   });
 
