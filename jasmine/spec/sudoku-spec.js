@@ -77,8 +77,28 @@ describe("SudokuSolver", function() {
   });
 
   describe("getAllIntersections", function() {
-    it("", function() {
-      expect(SudokuSolver.getAllIntersections());
+    beforeEach(function(){
+      jasmine.addMatchers({
+        toContainNumbers: function() {
+          return {
+            compare: function(actualCollection, expectedNumbers) {
+              var set = actualCollection.reduce(function(obj, el) {
+                obj[el] = true;
+                return obj;
+              }, {});
+              var allExpectedNumsInSet = expectedNumbers.reduce(function(numbersExist, num) {
+                return !!(numbersExist && set[num]);
+              }, true);
+              return {pass: allExpectedNumsInSet};
+            }
+          }
+        }
+      });
+    });
+
+    it("returns the values already in an index's row, column and box", function() {
+      var boardArray = EASY_PUZZLE.split("");
+      expect(SudokuSolver.getAllIntersections(boardArray, 1)).toContainNumbers(["1", "5", "8", "2", "9", "6", "3"]);
     });
   });
 
