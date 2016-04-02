@@ -194,8 +194,9 @@ describe("SudokuSolver", function() {
   });
 
   describe("toString", function() {
-    xit("", function() {
-      expect(SudokuSolver.toString());
+    it("it returns a string of 81 digits separated by spaces and new lines", function() {
+      var boardArray = SOLVED_PUZZLE.split("");
+      expect(SudokuSolver.toString(boardArray)).toMatch(/((([1-9] )+[1-9])\n){8}([1-9] )+[1-9]/);
     });
   });
 });
