@@ -26,6 +26,7 @@ var SudokuSolver = function (testable) {
     return solvedBoard;
   }
 
+  // PRIVATE FUNCTIONS
   function recursiveSolve(boardString) {
     var boardArray = boardString.split("");
     if (boardIsSolved(boardArray)) {
@@ -44,7 +45,6 @@ var SudokuSolver = function (testable) {
     return false;
   }
 
-  // PRIVATE FUNCTIONS
   function boardIsInvalid(boardArray) {
     return !boardIsValid(boardArray);
   }
