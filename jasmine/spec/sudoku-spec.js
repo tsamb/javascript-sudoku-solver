@@ -145,8 +145,12 @@ describe("SudokuSolver", function() {
   });
 
   describe("getColumn", function() {
-    xit("", function() {
-      expect(SudokuSolver.getColumn());
+    it("returns the column for the given index", function() {
+      var boardArray = EASY_PUZZLE.split("");
+      expect(SudokuSolver.getColumn(boardArray, 0)).toEqual(["1", "-", "2", "-", "7", "-", "-", "4", "6"]);
+      expect(SudokuSolver.getColumn(boardArray, 9)).toEqual(["1", "-", "2", "-", "7", "-", "-", "4", "6"]);
+      expect(SudokuSolver.getColumn(boardArray, 1)).toEqual(["-", "9", "-", "1", "6", "-", "-", "3", "-"]);
+      expect(SudokuSolver.getColumn(boardArray, 80)).toEqual(["-", "5", "9", "6", "-", "-", "-", "1", "-"]);
     });
   });
 
