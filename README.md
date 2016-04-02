@@ -44,3 +44,9 @@ This solver uses a backtracking tree-based recursive search algorithm:
   - Call the current function with the new board state; that is, create a new stack frame and go back to 1.
   - If a truthy base case is found down some recursive branch, return that board state to the parent caller
 - If iteration completes without finding a valid board, return false to the parent caller (reaching this step indicates a dead end and returning false results in the continuation of the iteration in the previous stack frame)
+
+## Unit testing
+
+Every function has a corresponding [Jasmine](https://github.com/jasmine/jasmine) spec. You can run the tests on your own browser by [visiting this page](https://tsamb.github.io/sudoku/jasmine/SpecRunner.html).
+
+All functions have been wrapped in a module assigned to the `SudokuSolver` namespace. The immediately invoked function assigned to `SudokuSolver` accepts a boolean as an argument, labelled as `TESTABLE` in the code. If `TESTABLE` is set to true, all functions in the module will be publicly available. If `TESTABLE` is set to false, only `SudokuSolver.solve()` and `SudokuSolver.solveAndPrint()` will be publicly available to call.
