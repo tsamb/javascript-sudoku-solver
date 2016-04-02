@@ -103,8 +103,14 @@ describe("SudokuSolver", function() {
   });
 
   describe("allRowsValid", function() {
-    it("", function() {
-      expect(SudokuSolver.allRowsValid());
+    it("returns true when every digit in each row is unique", function() {
+      var boardArray = EASY_PUZZLE.split("");
+      expect(SudokuSolver.allRowsValid(boardArray)).toEqual(true);
+    });
+
+    it("returns false when there are any duplicate values on any row", function() {
+      var boardArray = INVALID_PUZZLE.split("");
+      expect(SudokuSolver.allRowsValid(boardArray)).toEqual(false);
     });
   });
 
