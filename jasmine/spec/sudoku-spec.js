@@ -145,31 +145,31 @@ describe("SudokuSolver", function() {
   });
 
   describe("getColumn", function() {
-    it("", function() {
+    xit("", function() {
       expect(SudokuSolver.getColumn());
     });
   });
 
   describe("allBoxesValid", function() {
-    it("", function() {
+    xit("", function() {
       expect(SudokuSolver.allBoxesValid());
     });
   });
 
   describe("getBox", function() {
-    it("", function() {
+    xit("", function() {
       expect(SudokuSolver.getBox());
     });
   });
 
   describe("collectionIsValid", function() {
-    it("", function() {
+    xit("", function() {
       expect(SudokuSolver.collectionIsValid());
     });
   });
 
   describe("toString", function() {
-    it("", function() {
+    xit("", function() {
       expect(SudokuSolver.toString());
     });
   });
