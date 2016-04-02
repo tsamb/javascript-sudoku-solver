@@ -133,8 +133,14 @@ describe("SudokuSolver", function() {
   });
 
   describe("allColumnsValid", function() {
-    it("", function() {
-      expect(SudokuSolver.allColumnsValid());
+    it("returns true when every digit in each column is unique", function() {
+      var boardArray = EASY_PUZZLE.split("");
+      expect(SudokuSolver.allColumnsValid(boardArray)).toEqual(true);
+    });
+
+    it("returns false when there are any duplicate values on any column", function() {
+      var boardArray = COLUMN_INVALID_PUZZLE.split("");
+      expect(SudokuSolver.allColumnsValid(boardArray)).toEqual(false);
     });
   });
 
