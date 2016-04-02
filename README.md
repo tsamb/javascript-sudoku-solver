@@ -1,6 +1,6 @@
 # JavaScript Sudoku Solver
 
-A [Sudoku](https://en.wikipedia.org/wiki/Sudoku) solver written in JavaScript. [Click here](//tsamb.github.io/sudoku) for the web version of the solver.
+A [Sudoku](https://en.wikipedia.org/wiki/Sudoku) solver written in JavaScript. [Click here](http://tsamb.github.io/sudoku) for the web version of the solver.
 
 This code previously used ES6 and ES7 features of arrow syntax, the `Array.prototype` method `#includes` and the `new Set()` constructor. Due to lack of support in Safari, Edge and IE, I rewrote functions using those features in ES5. The current iteration of this code is unit tested and passing in Chrome 49, Firefox 43, Safari 8, Edge 25 and Internet Explorer 11.
 
@@ -10,7 +10,7 @@ This code previously used ES6 and ES7 features of arrow syntax, the `Array.proto
 
 ### Browser
 
-You can play with an interactive GUI version of the solver [at this website](//tsamb.github.io/sudoku).
+You can play with an interactive GUI version of the solver [at this website](https://tsamb.github.io/sudoku).
 
 ### Console
 
