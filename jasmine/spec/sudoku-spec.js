@@ -71,11 +71,13 @@ describe("SudokuSolver", function() {
 
   describe("boardIsSolved", function() {
     it("returns true when the board contains only numbers", function() {
-      expect(SudokuSolver.boardIsSolved(SOLVED_PUZZLE)).toEqual(true);
+      var boardArray = SOLVED_PUZZLE.split("");
+      expect(SudokuSolver.boardIsSolved(boardArray)).toEqual(true);
     });
 
     it("returns false when the board contains only numbers", function() {
-      expect(SudokuSolver.boardIsSolved(EASY_PUZZLE)).toEqual(false);
+      var boardArray = EASY_PUZZLE.split("");
+      expect(SudokuSolver.boardIsSolved(boardArray)).toEqual(false);
     });
   });
 
