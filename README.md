@@ -1,10 +1,18 @@
 # JavaScript Sudoku Solver
 
-A [Sudoku](https://en.wikipedia.org/wiki/Sudoku) solver written in JavaScript.
+A [Sudoku](https://en.wikipedia.org/wiki/Sudoku) solver written in JavaScript. [Click here](//tsamb.github.io/sudoku) for the web version of the solver.
+
+This code previously used ES6 and ES7 features of arrow syntax, the `Array.prototype` method `#includes` and the `new Set()` constructor. Due to lack of support in Safari, Edge and IE, I rewrote functions using those features in ES5. The current iteration of this code is unit tested and passing in Chrome 49, Firefox 43 and Safari 8.
+
+~~This code uses ES6 arrow syntax and the ES7 array method, `Array.prototype.includes()`. You can run this code in Chrome, Firefox or Node (with the `--harmony` flag to support `includes()`).~~
 
 ## Usage
 
-This code uses ES6 arrow syntax and the ES7 array method, `Array.prototype.includes()`. You can run this code in Chrome, Firefox or Node (with the `--harmony` flag to support `includes()`).
+### Browser
+
+You can play with an interactive GUI version of the solver [at this website](//tsamb.github.io/sudoku).
+
+### Console
 
 Call the `SudokuSolver.solve()` function with an 81 character string where hyphens, "-", represent unsolved cells on the board.
 
