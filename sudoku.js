@@ -83,7 +83,7 @@ var SudokuSolver = function (testable) {
   }
 
   function getAllIntersections(boardArray, i) {
-    return [].concat(_toConsumableArray(new Set([].concat(_toConsumableArray(getRow(boardArray, i)), _toConsumableArray(getColumn(boardArray, i)), _toConsumableArray(getBox(boardArray, i))))));
+    return getRow(boardArray, i).concat(getColumn(boardArray, i)).concat(getBox(boardArray, i));
   }
 
   function allRowsValid(boardArray) {
