@@ -1,6 +1,7 @@
 describe("SudokuSolver", function() {
   var INVALID_PUZZLE,
       COLUMN_INVALID_PUZZLE,
+      BOX_INVALID_PUZZLE,
       EMPTY_PUZZLE,
       SOLVED_PUZZLE,
       EASY_PUZZLE,
@@ -10,6 +11,7 @@ describe("SudokuSolver", function() {
   beforeEach(function() {
     INVALID_PUZZLE = "1-5812----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--";
     COLUMN_INVALID_PUZZLE = "1958-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--";
+    BOX_INVALID_PUZZLE = "1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-167-3-89--";
     EMPTY_PUZZLE = "--------------------------------------------------------------------------------";
     SOLVED_PUZZLE = "12345678945678912378912345621436589736589721489721436553164297864297853197853164";
     EASY_PUZZLE = "1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--";
@@ -155,8 +157,14 @@ describe("SudokuSolver", function() {
   });
 
   describe("allBoxesValid", function() {
-    xit("", function() {
-      expect(SudokuSolver.allBoxesValid());
+    it("returns true when every digit in each box is unique", function() {
+      var boardArray = EASY_PUZZLE.split("");
+      expect(SudokuSolver.allBoxesValid(boardArray)).toEqual(true);
+    });
+
+    it("returns false when there are any duplicate values on any box", function() {
+      var boardArray = BOX_INVALID_PUZZLE.split("");
+      expect(SudokuSolver.allBoxesValid(boardArray)).toEqual(false);
     });
   });
 
