@@ -86,6 +86,11 @@ describe("SudokuSolver", function() {
       var boardArray = EMPTY_PUZZLE.split("");
       expect(SudokuSolver.getNextCellAndPossibilities(boardArray)).toEqual({index: 0, choices: ['1', '2', '3', '4', '5', '6', '7', '8', '9']});
     });
+
+    it("returns the index of the next empty cell with the remaining possibilities for that cell", function() {
+      var boardArray = EASY_PUZZLE.split("");
+      expect(SudokuSolver.getNextCellAndPossibilities(boardArray)).toEqual({index: 1, choices: ['4', '7']});
+    });
   });
 
   describe("getAllIntersections", function() {
