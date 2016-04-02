@@ -13,16 +13,7 @@ var SudokuSolver = (function(testable) {
   function solve(boardString) {
     var boardArray = boardString.split("");
     if (boardIsInvalid(boardArray)) { return false }
-    if (boardIsSolved(boardArray)) { return boardString }
-    var cellPossibilities = getNextCellAndPossibilities(boardArray);
-    var nextUnsolvedCellIndex = cellPossibilities.index;
-    var possibilities = cellPossibilities.choices;
-    for (var i = 0; i < possibilities.length; i++) {
-      boardArray[nextUnsolvedCellIndex] = possibilities[i];
-      var solvedBoard = solve(boardArray.join(""));
-      if (solvedBoard) { return solvedBoard }
-    }
-    return false;
+    return recursiveSolve(boardString);
   }
 
   function solveAndPrint(boardString) {
@@ -31,7 +22,19 @@ var SudokuSolver = (function(testable) {
     return solvedBoard;
   }
 
-  
+  function recursiveSolve(boardString) {
+    var boardArray = boardString.split("")
+    if (boardIsSolved(boardArray)) { return boardArray.join("") }
+    var cellPossibilities = getNextCellAndPossibilities(boardArray);
+    var nextUnsolvedCellIndex = cellPossibilities.index;
+    var possibilities = cellPossibilities.choices;
+    for (var i = 0; i < possibilities.length; i++) {
+      boardArray[nextUnsolvedCellIndex] = possibilities[i];
+      var solvedBoard = recursiveSolve(boardArray.join(""));
+      if (solvedBoard) { return solvedBoard }
+    }
+    return false;
+  }
 
   // PRIVATE FUNCTIONS
   function boardIsInvalid(boardArray) {
@@ -109,6 +112,7 @@ var SudokuSolver = (function(testable) {
     // These methods will be exposed publicly when testing is on.
     solver = {solve: solve,
               solveAndPrint: solveAndPrint,
+              recursiveSolve: recursiveSolve,
               boardIsInvalid: boardIsInvalid,
               boardIsValid: boardIsValid,
               boardIsSolved: boardIsSolved,
