@@ -75,7 +75,7 @@ var SudokuSolver = function (testable) {
       if (boardArray[i] === "-") {
         var existingValues = getAllIntersections(boardArray, i);
         var choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9"].filter(function (num) {
-          return !existingValues.includes(num);
+          return existingValues.indexOf(num) < 0;
         });
         return { index: i, choices: choices };
       }
