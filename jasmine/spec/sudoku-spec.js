@@ -12,7 +12,7 @@ describe("SudokuSolver", function() {
     INVALID_PUZZLE = "1-5812----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--";
     COLUMN_INVALID_PUZZLE = "1958-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--";
     BOX_INVALID_PUZZLE = "1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-167-3-89--";
-    EMPTY_PUZZLE = "--------------------------------------------------------------------------------";
+    EMPTY_PUZZLE = "---------------------------------------------------------------------------------";
     SOLVED_PUZZLE = "12345678945678912378912345621436589736589721489721436553164297864297853197853164";
     EASY_PUZZLE = "1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--";
     MEDIUM_PUZZLE = "-3-5--8-45-42---1---8--9---79-8-61-3-----54---5------78-----7-2---7-46--61-3--5--";
@@ -21,7 +21,7 @@ describe("SudokuSolver", function() {
 
   describe("solve", function() {
     describe("for an invalid board", function() {
-      it("returns false for an invalid board", function() {
+      it("returns false", function() {
         expect(SudokuSolver.solve(INVALID_PUZZLE)).toEqual(false);
       });
     });
@@ -42,6 +42,12 @@ describe("SudokuSolver", function() {
 
     it("returns an 81 charcter string with only numbers", function() {
       expect(SudokuSolver.solveAndPrint(EASY_PUZZLE)).toMatch(/[1-9]{81}/);
+    });
+  });
+
+  describe("recursiveSolve", function() {
+    it("returns an 81 charcter string with only numbers given a valid board", function() {
+      expect(SudokuSolver.recursiveSolve(EASY_PUZZLE)).toMatch(/[1-9]{81}/);
     });
   });
 
@@ -71,11 +77,13 @@ describe("SudokuSolver", function() {
 
   describe("boardIsSolved", function() {
     it("returns true when the board contains only numbers", function() {
-      expect(SudokuSolver.boardIsSolved(SOLVED_PUZZLE)).toEqual(true);
+      var boardArray = SOLVED_PUZZLE.split("");
+      expect(SudokuSolver.boardIsSolved(boardArray)).toEqual(true);
     });
 
     it("returns false when the board contains only numbers", function() {
-      expect(SudokuSolver.boardIsSolved(EASY_PUZZLE)).toEqual(false);
+      var boardArray = EASY_PUZZLE.split("");
+      expect(SudokuSolver.boardIsSolved(boardArray)).toEqual(false);
     });
   });
 
@@ -83,6 +91,11 @@ describe("SudokuSolver", function() {
     it("returns an object with an integer and subarray", function() {
       var boardArray = EMPTY_PUZZLE.split("");
       expect(SudokuSolver.getNextCellAndPossibilities(boardArray)).toEqual({index: 0, choices: ['1', '2', '3', '4', '5', '6', '7', '8', '9']});
+    });
+
+    it("returns the index of the next empty cell with the remaining possibilities for that cell", function() {
+      var boardArray = EASY_PUZZLE.split("");
+      expect(SudokuSolver.getNextCellAndPossibilities(boardArray)).toEqual({index: 1, choices: ['4', '7']});
     });
   });
 
