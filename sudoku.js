@@ -62,8 +62,12 @@ var SudokuSolver = function (testable) {
   }
 
   function boardIsSolved(boardArray) {
-    debugger;
-    return !boardArray.includes("-");
+    for (var i = 0; i < boardArray.length; i++) {
+      if (boardArray[i] === "-") {
+        return false;
+      }
+    }
+    return true;
   }
 
   function getNextCellAndPossibilities(boardArray) {
