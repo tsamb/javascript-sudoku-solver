@@ -21,7 +21,7 @@ describe("SudokuSolver", function() {
 
   describe("solve", function() {
     describe("for an invalid board", function() {
-      it("returns false for an invalid board", function() {
+      it("returns false", function() {
         expect(SudokuSolver.solve(INVALID_PUZZLE)).toEqual(false);
       });
     });
@@ -42,6 +42,12 @@ describe("SudokuSolver", function() {
 
     it("returns an 81 charcter string with only numbers", function() {
       expect(SudokuSolver.solveAndPrint(EASY_PUZZLE)).toMatch(/[1-9]{81}/);
+    });
+  });
+
+  describe("recursiveSolve", function() {
+    it("returns an 81 charcter string with only numbers given a valid board", function() {
+      expect(SudokuSolver.recursiveSolve(EASY_PUZZLE)).toMatch(/[1-9]{81}/);
     });
   });
 
