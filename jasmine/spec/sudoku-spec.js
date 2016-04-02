@@ -179,8 +179,17 @@ describe("SudokuSolver", function() {
   });
 
   describe("collectionIsValid", function() {
-    xit("", function() {
-      expect(SudokuSolver.collectionIsValid());
+    it("returns true when no duplicates exist in the given collection", function() {
+      expect(SudokuSolver.collectionIsValid(["1","2","3"])).toEqual(true);
+    });
+
+    it("ignores dashes in the calculation", function() {
+      expect(SudokuSolver.collectionIsValid(["1","-","2","3","-","-"])).toEqual(true);
+    });
+
+    it("returns false when collection contains a duplicate digit", function() {
+      expect(SudokuSolver.collectionIsValid(["1","2","3","1","-","-"])).toEqual(false);
+      expect(SudokuSolver.collectionIsValid(["1","2","3","1"])).toEqual(false);
     });
   });
 
