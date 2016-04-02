@@ -169,8 +169,12 @@ describe("SudokuSolver", function() {
   });
 
   describe("getBox", function() {
-    xit("", function() {
-      expect(SudokuSolver.getBox());
+    it("returns the box for the given index", function() {
+      var boardArray = EASY_PUZZLE.split("");
+      expect(SudokuSolver.getBox(boardArray, 0)).toEqual(["1", "-", "5", "-", "9", "-", "2", "-", "-"]);
+      expect(SudokuSolver.getBox(boardArray, 10)).toEqual(["1", "-", "5", "-", "9", "-", "2", "-", "-"]);
+      expect(SudokuSolver.getBox(boardArray, 40)).toEqual(["-", "-", "7", "-", "8", "3", "-", "6", "1"]);
+      expect(SudokuSolver.getBox(boardArray, 80)).toEqual(["-", "3", "-", "5", "-", "1", "9", "-", "-"]);
     });
   });
 
