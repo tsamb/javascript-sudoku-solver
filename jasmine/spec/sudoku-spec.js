@@ -1,5 +1,5 @@
 describe("SudokuSolver", function() {
-  var INVALID_PUZZLE, EASY_PUZZLE, MEDIUM_PUZZLE, HARD_PUZZLE;
+  var INVALID_PUZZLE, EMPTY_PUZZLE, SOLVED_PUZZLE, EASY_PUZZLE, MEDIUM_PUZZLE, HARD_PUZZLE;
   beforeEach(function() {
     INVALID_PUZZLE = "1158-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--";
     EMPTY_PUZZLE = "--------------------------------------------------------------------------------";
