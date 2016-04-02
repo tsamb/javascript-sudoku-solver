@@ -1,7 +1,15 @@
 describe("SudokuSolver", function() {
-  var INVALID_PUZZLE, EMPTY_PUZZLE, SOLVED_PUZZLE, EASY_PUZZLE, MEDIUM_PUZZLE, HARD_PUZZLE;
+  var INVALID_PUZZLE,
+      COLUMN_INVALID_PUZZLE,
+      EMPTY_PUZZLE,
+      SOLVED_PUZZLE,
+      EASY_PUZZLE,
+      MEDIUM_PUZZLE,
+      HARD_PUZZLE;
+
   beforeEach(function() {
-    INVALID_PUZZLE = "1158-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--";
+    INVALID_PUZZLE = "1-5812----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--";
+    COLUMN_INVALID_PUZZLE = "1958-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--";
     EMPTY_PUZZLE = "--------------------------------------------------------------------------------";
     SOLVED_PUZZLE = "12345678945678912378912345621436589736589721489721436553164297864297853197853164";
     EASY_PUZZLE = "1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--";
